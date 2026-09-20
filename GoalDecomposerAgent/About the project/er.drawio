@@ -1,0 +1,77 @@
+<mxfile host="app.diagrams.net" modified="2026-09-20T17:00:00.000Z" agent="ChatGPT" version="24.7.17" type="device">
+  <diagram id="goal-er" name="ER Diagram">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="Goal Decomposer — Entity Relationship Diagram (ERD)" style="text;html=1;strokeColor=none;fillColor=none;fontSize=26;fontStyle=1;fontColor=#1F1F1F;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="500" y="30" width="600" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- GOAL -->
+        <mxCell id="goal" value="&lt;b&gt;GOAL&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; goal_id&lt;br&gt;description&lt;br&gt;deadline&lt;br&gt;available_time&lt;br&gt;created_at&lt;br&gt;status" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8E0FF;strokeColor=#6B4EFF;strokeWidth=2;fontSize=15;align=left;spacingLeft=14;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="170" y="300" width="260" height="220" as="geometry"/>
+        </mxCell>
+
+        <!-- MILESTONE -->
+        <mxCell id="milestone" value="&lt;b&gt;MILESTONE&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; milestone_id&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; goal_id&lt;br&gt;title&lt;br&gt;description&lt;br&gt;sequence_order&lt;br&gt;created_at" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#43A047;strokeWidth=2;fontSize=15;align=left;spacingLeft=14;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="610" y="250" width="280" height="230" as="geometry"/>
+        </mxCell>
+
+        <!-- TASK -->
+        <mxCell id="task" value="&lt;b&gt;TASK&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; task_id&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; milestone_id&lt;br&gt;title&lt;br&gt;description&lt;br&gt;status&lt;br&gt;estimated_minutes&lt;br&gt;scheduled_date&lt;br&gt;completed_at" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;fontSize=15;align=left;spacingLeft=14;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="220" width="300" height="270" as="geometry"/>
+        </mxCell>
+
+        <!-- JOB -->
+        <mxCell id="job" value="&lt;b&gt;JOB&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; job_id&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; goal_id&lt;br&gt;job_type&lt;br&gt;status&lt;br&gt;payload&lt;br&gt;created_at&lt;br&gt;started_at&lt;br&gt;completed_at&lt;br&gt;error_message" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FB8C00;strokeWidth=2;fontSize=15;align=left;spacingLeft=14;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="500" y="620" width="300" height="280" as="geometry"/>
+        </mxCell>
+
+        <!-- AGENT TRACE -->
+        <mxCell id="trace" value="&lt;b&gt;AGENT_TRACE&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; trace_id&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; job_id&lt;br&gt;event_type&lt;br&gt;tool_name&lt;br&gt;status&lt;br&gt;message&lt;br&gt;duration_ms&lt;br&gt;created_at" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#8E44AD;strokeWidth=2;fontSize=15;align=left;spacingLeft=14;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="990" y="620" width="300" height="280" as="geometry"/>
+        </mxCell>
+
+        <!-- Relationships -->
+        <mxCell id="r1" value="1" edge="1" parent="1" source="goal" target="milestone" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;startArrow=none;endArrow=none;html=1;fontSize=16;fontStyle=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1b" value="N" edge="1" parent="1" source="milestone" target="goal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;startArrow=none;endArrow=none;html=1;fontSize=16;fontStyle=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r2" value="1" edge="1" parent="1" source="milestone" target="task" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;startArrow=none;endArrow=none;html=1;fontSize=16;fontStyle=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2b" value="N" edge="1" parent="1" source="task" target="milestone" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;startArrow=none;endArrow=none;html=1;fontSize=16;fontStyle=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r3" value="1" edge="1" parent="1" source="goal" target="job" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;startArrow=none;endArrow=none;html=1;fontSize=16;fontStyle=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3b" value="N" edge="1" parent="1" source="job" target="goal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;startArrow=none;endArrow=none;html=1;fontSize=16;fontStyle=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r4" value="1" edge="1" parent="1" source="job" target="trace" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;startArrow=none;endArrow=none;html=1;fontSize=16;fontStyle=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4b" value="N" edge="1" parent="1" source="trace" target="job" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;startArrow=none;endArrow=none;html=1;fontSize=16;fontStyle=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="PK = Primary Key   |   FK = Foreign Key   |   1:N = One-to-Many" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#999999;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="520" y="930" width="560" height="45" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note" value="Progress is derived from TASK.status, so a separate PROGRESS table is not required for the MVP." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2F8;strokeColor=#2874A6;fontSize=13;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="170" y="600" width="260" height="100" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

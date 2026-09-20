@@ -1,0 +1,60 @@
+FUNCTIONAL REQUIREMENTS
+
+FR-01: Goal Creation
+The system shall allow the user to create a goal by providing
+a goal description, deadline, and available time.
+
+FR-02: Goal Decomposition
+The agent shall analyze the user's goal and decompose it into
+milestones and actionable tasks.
+
+FR-03: Schedule Generation
+The agent shall generate a simple schedule for the tasks based
+on the user's deadline and available time.
+
+FR-04: Progress Tracking
+The system shall allow the user to update task status and
+display the overall progress of the goal.
+
+FR-05: Daily Task Recommendation
+The agent shall identify and recommend pending tasks that the
+user can work on based on the current plan.
+
+FR-06: Goal Replanning
+The agent shall generate an updated plan when the user reports
+a significant change such as missed tasks or reduced available
+time.
+
+NON-FUNCTIONAL REQUIREMENTS
+
+NFR-01: Performance
+The system should provide responses within a reasonable time
+for normal operations.
+
+NFR-02: Reliability
+The system should handle failures gracefully and should not
+present unsuccessful operations as successful.
+
+NFR-03: Usability
+The interface should be simple enough for a user to create,
+understand, and track a goal without technical knowledge.
+
+NFR-04: Data Consistency
+Goal, milestone, task, and progress information should remain
+consistent when updates are made.
+
+NFR-05: Security
+API keys and user data should not be exposed through the
+application or source code.
+
+NFR-06: Maintainability
+The application should separate agent logic, tools, database
+operations, and application logic into modular components.
+
+NFR-07: Extensibility
+The architecture should allow additional features and tools
+to be added later without redesigning the entire application.
+
+NFR-08: Traceability
+Important agent actions and tool calls should be logged so that
+the behavior of the agent can be understood and debugged.

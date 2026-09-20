@@ -1,0 +1,24 @@
+This project is built with "Student" as main target user.
+
+
+Students often have a lot on their plate to learn and upgrade themselves.
+They often have large goals in their brain.
+Our goal is to decompose that big goals into small achievable milestones.
+
+
+For instance,
+
+~ A student's goal is to get an internship.
+~ But don't know:
+    -where to start
+    -what milestones are required
+    -which tasks depend on others
+    -how much time each task requires
+    -what to do each day
+    -how to recover when they fall behind
+~ Goal decomposer should: A goal-decomposition agent that converts a high-level goal into structured 
+                                    -milestones, 
+                                    -tasks, 
+                                    -dependencies and 
+                                    -an achievable schedule, 
+                          then continuously adjusts the plan based on user progress.
